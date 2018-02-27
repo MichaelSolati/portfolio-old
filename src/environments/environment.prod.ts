@@ -1,19 +1,19 @@
 export const environment = {
   production: true,
-  email: null,
+  email: 'me@michaelsolati.com',
   firebase: {
-    apiKey: null,
-    authDomain: null,
-    databaseURL: null,
-    projectId: null,
-    storageBucket: null,
-    messagingSenderId: null
+    apiKey: 'AIzaSyBq8w1zumTsb_Qv1ndgCEG7tyk1eDCKSWw',
+    authDomain: 'michaelsolati-com.firebaseapp.com',
+    databaseURL: 'https://michaelsolati-com.firebaseio.com',
+    projectId: 'michaelsolati-com',
+    storageBucket: 'michaelsolati-com.appspot.com',
+    messagingSenderId: '653176308527'
   },
-  github: null,
-  linkedin: null,
-  medium: null,
-  name: null,
-  phone: null,
-  twitter: null,
-  youtube: null
+  github: 'MichaelSolati',
+  linkedin: 'michaelsolati',
+  medium: 'MichaelSolati',
+  name: 'Michael Solati',
+  phone: '347.559.7399',
+  twitter: 'MichaelSolati',
+  youtube: 'PLpvTYOL2L1kRkGfvnMk96sQ-iDKkzxrUl'
 };

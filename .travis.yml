@@ -16,3 +16,5 @@ deploy:
   token:
     secure: $FIREBASE_TOKEN
   skip_cleanup: true
+  on:
+    branch: deployed

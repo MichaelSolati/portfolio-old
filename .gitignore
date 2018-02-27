@@ -5,9 +5,11 @@
 /dist-server
 /tmp
 /out-tsc
+/functions/dist
 
 # dependencies
 /node_modules
+/functions/node_modules
 
 # IDEs and editors
 /.idea
@@ -29,10 +31,10 @@
 /.sass-cache
 /connect.lock
 /coverage
-/libpeerconnection.log
-npm-debug.log
-testem.log
+*.log
 /typings
+/functions/serviceAccountKey.json
+/functions/src/environment.ts
 
 # e2e
 /e2e/*.js

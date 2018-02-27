@@ -3,8 +3,7 @@
   "project": {
     "name": "ng-portfolio"
   },
-  "apps": [
-    {
+  "apps": [{
       "root": "src",
       "outDir": "dist",
       "assets": [
@@ -19,7 +18,37 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "ngp",
       "styles": [
-        "styles.scss"
+        "../node_modules/normalizecss/normalize.css",
+        "styles.scss",
+        "styles/_classes.scss",
+        "styles/_elements.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "platform": "server",
+      "root": "src",
+      "outDir": "functions/dist/app",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.server.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "ngp",
+      "styles": [
+        "../node_modules/normalizecss/normalize.css",
+        "styles.scss",
+        "styles/_classes.scss",
+        "styles/_elements.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -34,8 +63,7 @@
       "config": "./protractor.conf.js"
     }
   },
-  "lint": [
-    {
+  "lint": [{
       "project": "src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },

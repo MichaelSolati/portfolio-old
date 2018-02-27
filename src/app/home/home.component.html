@@ -1,0 +1,74 @@
+<section class="padding-16">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="title">{{(profile$ | async)?.name}}</mat-card-title>
+      <mat-card-subtitle>{{(profile$ | async)?.headline}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container">
+        <div class="row">
+          <div class="text-center padding-16 col-12 col-sm-6 col-md-4">
+            <img id="profile-pic" [src]="(profile$ | async)?.photo || 'assets/defaults/profile.png'" class="responsive center circle"
+              [alt]="'Profile Picture Of '+(profile$ | async)?.name">
+            <p *ngIf="email">email @
+              <a [href]="'mailto:'+email" class="color">{{email}}</a>
+            </p>
+            <p *ngIf="phone">call @
+              <a [href]="'tel:'+phone" class="color">{{phone}}</a>
+            </p>
+          </div>
+          <div class="padding-16 col-12 col-sm-6 col-md-8">
+            <p>{{(profile$ | async)?.summary}}</p>
+            <div class="row justify-content-center">
+              <div *ngFor="let social of socials" class="col-3 col-sm-6 col-md-3" (click)="goToURL(social.url)">
+                <img class="responsive social" [src]="social.src" [alt]="social.alt">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section>
+  <mat-tab-group>
+    <mat-tab label="Experience">
+      <div class="row justify-content-center">
+        <div *ngFor="let experience of (profile$ | async)?.experience" class="padding-16 col-12 col-sm-6 col-lg-4">
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar *ngIf="experience.logo" class="card-header-image" [style.background-image]="sanitizeImage(experience.logo)"></div>
+              <mat-card-title>{{experience.title}}</mat-card-title>
+              <mat-card-subtitle>{{experience.company}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-chip-list>
+                <mat-chip color="primary" selected="true" class="text-center">{{experience.dateRange}}</mat-chip>
+              </mat-chip-list>
+              <p>{{experience.description}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Education">
+      <div class="row justify-content-center">
+        <div *ngFor="let education of (profile$ | async)?.education" class="padding-16 col-12 col-sm-6 col-lg-4">
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar *ngIf="education.logo" class="card-header-image" [style.background-image]="sanitizeImage(education.logo)"></div>
+              <mat-card-title>{{education.school}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-chip-list>
+                <mat-chip color="primary" selected="true" class="text-center">{{education.dateRange}}</mat-chip>
+              </mat-chip-list>
+              <p>{{education.field}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</section>

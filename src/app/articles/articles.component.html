@@ -1,0 +1,19 @@
+<section class="row">
+  <div class="row justify-content-center">
+    <div *ngFor="let article of articles$ | async" class="padding-16 col-12 col-sm-6 col-md-4">
+      <mat-card class="custom-card">
+        <a [href]="article.url" target="_blank" rel="noopener">
+          <div class="card-image" [style.background-image]="sanitizeImage(article.src)">
+            <h3 class="card-title">{{article.title}}</h3>
+          </div>
+        </a>
+        <mat-card-content>
+          <p>{{article.description | truncate}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a [href]="article.url" target="_blank" rel="noopener" mat-button color="accent">READ FULL ARTICLE</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+{
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "dist",
+    "redirects": [{
+      "source": "/",
+      "destination": "/home",
+      "type": 301
+    }],
+    "rewrites": [{
+      "source": "**",
+      "function": "ssr"
+    }]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "database": {
+    "rules": "database.rules.json"
+  }
+}

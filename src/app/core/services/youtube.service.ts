@@ -21,7 +21,7 @@ export class YouTubeService {
 
   private _fetch(): void {
     this._http.get(
-      'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=' +
+      'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=12&playlistId=' +
       environment.youtube + '&key=' + environment.firebase.apiKey
     ).subscribe((value: any) => {
       this._talks$.next(value.items.map((video: any) => {
@@ -30,11 +30,9 @@ export class YouTubeService {
           description: video.snippet.description,
           url: 'https://youtu.be/' + video.contentDetails.videoId,
           createdOn: new Date(video.contentDetails.videoPublishedAt).getTime(),
-          src: video.snippet.thumbnails.standard.url
+          src: (video.snippet.thumbnails.standard) ? video.snippet.thumbnails.standard.url : video.snippet.thumbnails.high.url
         };
-      })
-        .sort((a: ITalk, b: ITalk) => b.createdOn - a.createdOn)
-        .slice(0, 12));
+      }));
     }, (error: any) => { });
   }
 

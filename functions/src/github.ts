@@ -24,7 +24,7 @@ export const github = functions.https.onRequest((req, res) => {
               sort: 'updated'
             },
             headers: { 'User-Agent': 'request' }
-          }, (error: any, response: Response, body: string) => {
+          }, (error: any, response: any, body: string) => {
             if (error) {
               return res.status(error.code).send(error.message);
             }

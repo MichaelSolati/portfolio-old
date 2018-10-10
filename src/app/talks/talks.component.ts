@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { NgMetaService } from 'ngmeta';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { YouTubeService, ITalk } from '../core/services';
 import { environment } from '../../environments/environment';

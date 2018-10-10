@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgMetaService } from 'ngmeta';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { GitHubService, IRepository } from '../core/services';
 import { environment } from '../../environments/environment';

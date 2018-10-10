@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav, MatSidenavContainer } from '@angular/material';
 import { NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 
 import { environment } from '../environments/environment';
 

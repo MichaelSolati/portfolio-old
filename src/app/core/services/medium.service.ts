@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { IArticle } from '../interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MediumService {
 
   private _articles$: BehaviorSubject<IArticle[]> = new BehaviorSubject<IArticle[]>([]);

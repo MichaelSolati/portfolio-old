@@ -17,7 +17,7 @@ export const linkedin = functions.https.onRequest((req, res) => {
           .getSignedUrl({ action: 'read', expires: tomorrow })
           .then((url: string[]) => {
             if (url.length !== 1) return res.status(400).send('No profile found');
-            httpRequest({ method: 'GET', url: url[0] }, (error: any, response: Response, body: string) => {
+            httpRequest({ method: 'GET', url: url[0] }, (error: any, response: any, body: string) => {
               if (error) { return res.status(error.code).send(error.message); }
               inScrape.getProfile(body)
                 .then((profile) => {
